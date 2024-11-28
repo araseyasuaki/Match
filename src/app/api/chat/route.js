@@ -8,7 +8,7 @@ const openai = new OpenAI({
 
 export async function POST(request) {
 
-  const data = (await client.get({ endpoint: "matchai" })).contents;
+  const data = (await client.get({ endpoint: process.env.MICROCMS_SERVICE_DOMAIN })).contents;
 
   const body = await request.json();
   const { message } = body;
@@ -30,7 +30,7 @@ export async function POST(request) {
       .join('\n')}
     以下の情報を元に当てはまる学生を全員選んでください。
     ${message}
-    また、条件として番号を['番号','番号',]の配列に入れて配列だけを教えてください。
+    また、条件として番号を[番号,番号,]の配列に入れて配列だけを教えてください。
   `;
 
   const completion = await openai.chat.completions.create({
