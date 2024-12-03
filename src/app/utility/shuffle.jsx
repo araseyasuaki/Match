@@ -24,6 +24,17 @@ export const formData2 = [
   'データ駆動型の機能を開発する',
 ];
 
+export const formData3 = [
+  'エンジニア',
+  'フロント',
+  'バックエンド',
+  'デザイナー',
+  'ディレクター',
+  '二年生',
+  '一年生',
+  '学生',
+];
+
 export const shuffleForm = (data) => {
   const shuffled = [...data];
   for (let i = shuffled.length - 1; i > 0; i--) {
