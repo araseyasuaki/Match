@@ -1,11 +1,11 @@
-const ShuffleList = ({ shuffleData, setFormText, handleAlphabetClick }) => {
+const ShuffleList = ({ shuffleData, setFormText, abcNumber }) => {
   return (
     <ul>
       {shuffleData.map((item, index) => (
         <li
           onClick={() => {
             setFormText(item);
-            handleAlphabetClick(index); // アイテムがクリックされたときにインデックスを設定
+            abcNumber(index); // アイテムがクリックされたときにインデックスを設定
           }}
           key={index}
         >
