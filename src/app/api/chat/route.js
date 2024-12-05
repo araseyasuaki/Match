@@ -28,7 +28,7 @@ export async function POST(request) {
         将来設計:${e.futureDesign},
         課題説明:${e.assignExpl},`)
       .join('\n')}
-    以下の情報を元に当てはまる学生を全員選んでください。
+    以下の情報を元に当てはまる学生を三人選んでください。
     ${formText1}${formText2}${formText3}
     また、条件として番号を[番号,番号,]の配列に入れて配列だけを教えてください。
   `;
