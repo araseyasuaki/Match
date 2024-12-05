@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import ShuffleList from '../utility/shuffleList';
 import { formData1, formData2, formData3, shuffleForm } from '../utility/shuffle';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
 
@@ -25,6 +26,8 @@ const Page = () => {
   const [abcNumber3, setAbcNumber3] = useState(null);
 
   const [response, setResponse] = useState('');
+
+  const router = useRouter();
 
   useEffect(() => {
     // データをシャッフルして取得
@@ -58,9 +61,9 @@ const Page = () => {
       const data = await res.json();
       setResponse(data.message);
 
-      // if (data.message.length > 0) {
-      //   router.push(`/matching/result?response=${encodeURIComponent(data.message)}`);
-      // }
+      if (data.message.length > 0) {
+        router.push(`/matching/result?response=${encodeURIComponent(data.message)}`);
+      }
 
     } catch (error) {
       console.error('メッセージ送信に失敗しました:', error);
