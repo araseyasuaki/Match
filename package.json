@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "html2canvas": "^1.4.1",
     "microcms-js-sdk": "^3.1.2",
     "next": "15.0.3",
     "openai": "^4.72.0",
