@@ -72,12 +72,17 @@ const Page = () => {
 
   return (
     <>
-      <form>
-        <h1>{formText1 || '○○'} で {formText2 || '○○'} な {formText3 || '○○'}</h1>
+      <form className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-lg space-y-6">
+        <h1 className="text-2xl font-semibold text-center text-gray-700">
+          {formText1 || '○○'} で {formText2 || '○○'} な {formText3 || '○○'}
+        </h1>
 
-        <div onClick={() => btnSwitch(0)}>
+        <div
+          onClick={() => btnSwitch(0)}
+          className="cursor-pointer bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gradient-to-l transition-all"
+        >
           選択肢１
-          <p>{String.fromCharCode(65 + (abcNumber1 ?? -65))}</p>
+          <p className="mt-2 text-lg">{String.fromCharCode(65 + (abcNumber1 ?? -65))}</p>
         </div>
         {pageNumber === 0 && (
           <ShuffleList
@@ -87,9 +92,12 @@ const Page = () => {
           />
         )}
 
-        <div onClick={() => btnSwitch(1)}>
+        <div
+          onClick={() => btnSwitch(1)}
+          className="cursor-pointer bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gradient-to-l transition-all"
+        >
           選択肢２
-          <p>{String.fromCharCode(65 + (abcNumber2 ?? -65))}</p>
+          <p className="mt-2 text-lg">{String.fromCharCode(65 + (abcNumber2 ?? -65))}</p>
         </div>
         {pageNumber === 1 && (
           <ShuffleList
@@ -99,9 +107,12 @@ const Page = () => {
           />
         )}
 
-        <div onClick={() => btnSwitch(2)}>
+        <div
+          onClick={() => btnSwitch(2)}
+          className="cursor-pointer bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gradient-to-l transition-all"
+        >
           選択肢３
-          <p>{String.fromCharCode(65 + (abcNumber3 ?? -65))}</p>
+          <p className="mt-2 text-lg">{String.fromCharCode(65 + (abcNumber3 ?? -65))}</p>
         </div>
         {pageNumber === 2 && (
           <ShuffleList
@@ -110,17 +121,20 @@ const Page = () => {
             abcNumber={(index) => setAbcNumber3(index)}
           />
         )}
+
+        <button
+          onClick={opanAiBtn}
+          className="w-full py-3 px-6 bg-gradient-to-r from-pink-500 to-red-600 text-white font-semibold text-lg rounded-lg hover:opacity-90 transition duration-300"
+        >
+          送信
+        </button>
       </form>
 
-      <button
-        onClick={opanAiBtn}
-        className="w-full py-3 px-6 bg-gradient-to-r from-yellow-400 to-pink-600 text-white font-semibold text-lg rounded-lg hover:opacity-90 transition duration-300"
-      >
-        送信
-      </button>
-
-      <p>{response}</p>
-
+      {response && (
+        <div className="max-w-3xl mx-auto mt-6 text-center">
+          <p className="text-xl font-medium text-gray-700">{response}</p>
+        </div>
+      )}
     </>
   );
 };
