@@ -23,19 +23,29 @@ export default function ChoicePage() {
   }, []);
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-8 flex items-center justify-center">
       {userData.length > 0 ? (
         sortedIndices.map(e => (
-          <div key={e}>
-            <div>
-              <img src={userData[e - 1].icon.url} alt={`${userData[e - 1].name}の写真`} />
-              <p>{userData[e - 1].name}</p>
+          <div key={e} className="bg-white p-6 m-4 rounded-lg shadow-xl transform transition-transform hover:scale-105 hover:shadow-2xl">
+            <div className="flex flex-col items-center">
+              <p className="text-xl font-semibold text-gray-800">{userData[e - 1].number}</p>
+              <p className="text-xl font-semibold text-gray-800">{userData[e - 1].name}</p>
             </div>
           </div>
         ))
       ) : (
-        <p>データを読み込み中...</p>
+        <p className="text-white text-2xl font-bold">データを読み込み中...</p>
       )}
     </div>
   );
 }
+
+
+
+
+
+{/* <img
+src={userData[e - 1].icon.url}
+alt={`${userData[e - 1].name}の写真`}
+className="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-4"
+/> */}
