@@ -11,7 +11,7 @@ export async function POST(request) {
   const data = (await client.get({ endpoint: process.env.MICROCMS_SERVICE_DOMAIN })).contents;
 
   const body = await request.json();
-  const { formText1, formText2, formText3 } = body;
+  const { text } = body;
 
   const prompt = `
     学生情報:
@@ -28,8 +28,8 @@ export async function POST(request) {
         将来設計:${e.futureDesign},
         課題説明:${e.assignExpl},`)
       .join('\n')}
-    以下の情報を元に当てはまる学生を三人選んでください。
-    ${formText1}${formText2}${formText3}
+    以下の情報を元に当てはまる学生を全部選んでください。
+    ${text}
     また、条件として番号を[番号,番号,]の配列に入れて配列だけを教えてください。
   `;
 
